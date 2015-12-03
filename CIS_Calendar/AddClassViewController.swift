@@ -18,6 +18,7 @@ class AddClassViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         
         classDateTable.scrollEnabled = false
+        classDateTable.allowsSelection = false
         // Do any additional setup after loading the view.
     }
 
