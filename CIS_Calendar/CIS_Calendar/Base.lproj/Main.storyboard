@@ -176,7 +176,11 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="Event Detail" id="cmc-0Y-jv1">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="MDh-xw-k9e"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="MDh-xw-k9e">
+                                            <connections>
+                                                <action selector="backPressed:" destination="06U-n8-3oK" id="cc7-Wb-fTw"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="tVc-Cf-DpZ"/>
                                     </navigationItem>
                                 </items>
@@ -188,48 +192,63 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Event Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sh-tu-YP0">
-                                <rect key="frame" x="20" y="152" width="186" height="21"/>
+                                <rect key="frame" x="20" y="164" width="186" height="21"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyle-Roman" family="Iowan Old Style" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XMo-Sa-Lr6">
-                                <rect key="frame" x="20" y="310" width="560" height="282"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XMo-Sa-Lr6">
+                                <rect key="frame" x="20" y="344" width="560" height="248"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tasks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMu-8F-9tY">
-                                <rect key="frame" x="263" y="261" width="75" height="41"/>
+                                <rect key="frame" x="263" y="303" width="75" height="41"/>
                                 <fontDescription key="fontDescription" name="IowanOldStyle-Roman" family="Iowan Old Style" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5R-Jd-Q2o">
-                                <rect key="frame" x="133" y="208" width="333" height="45"/>
-                                <fontDescription key="fontDescription" name="IowanOldStyle-Roman" family="Iowan Old Style" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Start Date" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5R-Jd-Q2o">
+                                <rect key="frame" x="20" y="205" width="560" height="27"/>
+                                <fontDescription key="fontDescription" name="IowanOldStyle-Roman" family="Iowan Old Style" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="End Date" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9A7-QA-K8j">
+                                <rect key="frame" x="20" y="240" width="560" height="35"/>
+                                <fontDescription key="fontDescription" name="IowanOldStyle-Roman" family="Iowan Old Style" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="T5R-Jd-Q2o" firstAttribute="centerX" secondItem="AmO-S1-L73" secondAttribute="centerX" id="BLu-Xl-F8K"/>
-                            <constraint firstItem="2sh-tu-YP0" firstAttribute="top" secondItem="z0X-S5-ULA" secondAttribute="bottom" constant="8" id="CY7-M2-rWA"/>
+                            <constraint firstItem="XMo-Sa-Lr6" firstAttribute="top" secondItem="JMu-8F-9tY" secondAttribute="bottom" id="2NW-I3-EJ3"/>
+                            <constraint firstItem="T5R-Jd-Q2o" firstAttribute="leading" secondItem="AmO-S1-L73" secondAttribute="leadingMargin" id="3np-1J-rKd"/>
+                            <constraint firstItem="XMo-Sa-Lr6" firstAttribute="leading" secondItem="AmO-S1-L73" secondAttribute="leadingMargin" id="3rR-Jw-sLf"/>
+                            <constraint firstItem="Z2h-gE-5JD" firstAttribute="top" secondItem="XMo-Sa-Lr6" secondAttribute="bottom" constant="8" id="7YS-Wj-A6I"/>
+                            <constraint firstItem="XMo-Sa-Lr6" firstAttribute="trailing" secondItem="AmO-S1-L73" secondAttribute="trailingMargin" id="85d-Lt-dUQ"/>
                             <constraint firstItem="z0X-S5-ULA" firstAttribute="top" secondItem="pwi-ko-Q9s" secondAttribute="bottom" constant="15" id="Hbd-mn-qlf"/>
                             <constraint firstItem="z0X-S5-ULA" firstAttribute="trailing" secondItem="AmO-S1-L73" secondAttribute="trailingMargin" id="N8h-j2-bYU"/>
                             <constraint firstItem="z0X-S5-ULA" firstAttribute="leading" secondItem="AmO-S1-L73" secondAttribute="leadingMargin" id="NzD-wJ-6VK"/>
-                            <constraint firstItem="JMu-8F-9tY" firstAttribute="top" secondItem="T5R-Jd-Q2o" secondAttribute="bottom" constant="8" id="ZK0-zN-cW8"/>
+                            <constraint firstItem="T5R-Jd-Q2o" firstAttribute="top" secondItem="2sh-tu-YP0" secondAttribute="bottom" constant="20" id="PLH-eT-dhB"/>
+                            <constraint firstItem="2sh-tu-YP0" firstAttribute="top" secondItem="z0X-S5-ULA" secondAttribute="bottom" constant="20" id="Une-Qq-Lvo"/>
+                            <constraint firstItem="9A7-QA-K8j" firstAttribute="top" secondItem="T5R-Jd-Q2o" secondAttribute="bottom" constant="8" id="ZlM-eO-Wav"/>
                             <constraint firstItem="JMu-8F-9tY" firstAttribute="centerX" secondItem="AmO-S1-L73" secondAttribute="centerX" id="ZoF-E6-ioP"/>
+                            <constraint firstItem="T5R-Jd-Q2o" firstAttribute="trailing" secondItem="AmO-S1-L73" secondAttribute="trailingMargin" id="cLb-OW-PQz"/>
                             <constraint firstItem="pwi-ko-Q9s" firstAttribute="leading" secondItem="AmO-S1-L73" secondAttribute="leadingMargin" constant="-20" id="eJe-XI-QJ5"/>
+                            <constraint firstItem="9A7-QA-K8j" firstAttribute="leading" secondItem="AmO-S1-L73" secondAttribute="leadingMargin" id="elG-hr-gTp"/>
                             <constraint firstItem="2sh-tu-YP0" firstAttribute="leading" secondItem="AmO-S1-L73" secondAttribute="leadingMargin" id="hJF-Cz-OuI"/>
                             <constraint firstItem="pwi-ko-Q9s" firstAttribute="top" secondItem="jZZ-pt-6Ls" secondAttribute="bottom" id="iOh-bA-LCn"/>
-                            <constraint firstItem="T5R-Jd-Q2o" firstAttribute="top" secondItem="2sh-tu-YP0" secondAttribute="bottom" constant="35" id="oZM-PH-UpJ"/>
+                            <constraint firstItem="9A7-QA-K8j" firstAttribute="trailing" secondItem="AmO-S1-L73" secondAttribute="trailingMargin" id="j4o-nR-fVc"/>
+                            <constraint firstItem="JMu-8F-9tY" firstAttribute="top" secondItem="9A7-QA-K8j" secondAttribute="bottom" constant="28" id="q73-m9-ptY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="pwi-ko-Q9s" secondAttribute="trailing" constant="-20" id="u7U-Zf-o4i"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="dateLbl" destination="T5R-Jd-Q2o" id="c42-8d-lRB"/>
+                        <outlet property="endDateLbl" destination="9A7-QA-K8j" id="906-1l-l45"/>
                         <outlet property="eventNameLbl" destination="z0X-S5-ULA" id="TaH-AI-ffd"/>
                         <outlet property="eventTypeLbl" destination="2sh-tu-YP0" id="XP8-rm-NOb"/>
+                        <outlet property="startDateLbl" destination="T5R-Jd-Q2o" id="cpN-rF-Rxz"/>
                         <outlet property="tasksLbl" destination="JMu-8F-9tY" id="o1v-B1-70s"/>
                     </connections>
                 </viewController>

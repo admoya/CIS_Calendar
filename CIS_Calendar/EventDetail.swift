@@ -14,7 +14,8 @@ class EventDetail: UIViewController {
 
     @IBOutlet var eventNameLbl: UILabel!
     @IBOutlet var eventTypeLbl: UILabel!
-    @IBOutlet var dateLbl: UILabel!
+    @IBOutlet var startDateLbl: UILabel!
+    @IBOutlet var endDateLbl: UILabel!
     @IBOutlet var tasksLbl: UILabel!
     var events: NSMutableArray!
     var index: Int!
@@ -27,11 +28,29 @@ class EventDetail: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
        eventNameLbl.text = events[index].title
+        
+        if (events[index].notes == "STC_Class"){
+            eventTypeLbl.text = "Event Type: Class"
+        }
+        else{
+            eventTypeLbl.text = "Event Type: Event"
+        }
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.FullStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+
+        startDateLbl.text = "Starts: " + dateFormatter.stringFromDate(events[index].startDate)
+        endDateLbl.text = "Ends:  " + dateFormatter.stringFromDate(events[index].endDate)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func backPressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
 

@@ -68,6 +68,8 @@ class AddClassViewController: UIViewController, UITableViewDelegate, UITableView
                     
                     event.title = classNameTF.text!
                     
+                    event.notes = "STC_Class"
+                    
                     
                     let startDate = NSCalendar.currentCalendar().dateFromComponents(getStartTimeFromBlock(cell.getSelectedBlock1()))
                     let endDate = NSCalendar.currentCalendar().dateFromComponents(getEndTimeFromBlock(cell.getSelectedBlock2()))
