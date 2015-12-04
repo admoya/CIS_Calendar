@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5171A2251BD1C2ED00AC5D22"
-               BuildableName = "CIS_Calendar.app"
+               BuildableName = "Super Task Cal.app"
                BlueprintName = "CIS_Calendar"
                ReferencedContainer = "container:CIS_Calendar.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5171A2251BD1C2ED00AC5D22"
-            BuildableName = "CIS_Calendar.app"
+            BuildableName = "Super Task Cal.app"
             BlueprintName = "CIS_Calendar"
             ReferencedContainer = "container:CIS_Calendar.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5171A2251BD1C2ED00AC5D22"
-            BuildableName = "CIS_Calendar.app"
+            BuildableName = "Super Task Cal.app"
             BlueprintName = "CIS_Calendar"
             ReferencedContainer = "container:CIS_Calendar.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5171A2251BD1C2ED00AC5D22"
-            BuildableName = "CIS_Calendar.app"
+            BuildableName = "Super Task Cal.app"
             BlueprintName = "CIS_Calendar"
             ReferencedContainer = "container:CIS_Calendar.xcodeproj">
          </BuildableReference>

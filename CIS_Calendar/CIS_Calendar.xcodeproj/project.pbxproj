@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		514CB2861BD66F6A007EB460 /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514CB2851BD66F6A007EB460 /* AddClassViewController.swift */; };
+		516588721C1121B400B0E20C /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516588711C1121B400B0E20C /* AddTaskViewController.swift */; };
+		516588741C11245A00B0E20C /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516588731C11245A00B0E20C /* Task.swift */; };
+		516588761C113A2B00B0E20C /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516588751C113A2B00B0E20C /* TaskCell.swift */; };
 		5171A22A1BD1C2ED00AC5D22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5171A2291BD1C2ED00AC5D22 /* AppDelegate.swift */; };
 		5171A22C1BD1C2ED00AC5D22 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5171A22B1BD1C2ED00AC5D22 /* FirstViewController.swift */; };
 		5171A22E1BD1C2ED00AC5D22 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5171A22D1BD1C2ED00AC5D22 /* SecondViewController.swift */; };
@@ -21,7 +24,10 @@
 
 /* Begin PBXFileReference section */
 		514CB2851BD66F6A007EB460 /* AddClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
-		5171A2261BD1C2ED00AC5D22 /* CIS_Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CIS_Calendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		516588711C1121B400B0E20C /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		516588731C11245A00B0E20C /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		516588751C113A2B00B0E20C /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		5171A2261BD1C2ED00AC5D22 /* Super Task Cal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Task Cal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5171A2291BD1C2ED00AC5D22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5171A22B1BD1C2ED00AC5D22 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		5171A22D1BD1C2ED00AC5D22 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -48,10 +54,13 @@
 		5171A21D1BD1C2ED00AC5D22 = {
 			isa = PBXGroup;
 			children = (
+				516588711C1121B400B0E20C /* AddTaskViewController.swift */,
+				516588731C11245A00B0E20C /* Task.swift */,
 				517DD4B01BDDCD4000AA6E58 /* AddClassCell.swift */,
 				51BA5FCB1C0FFF0800DA10FF /* EventDetail.swift */,
 				51BA5FC91C0FF45200DA10FF /* EventCell.swift */,
 				514CB2851BD66F6A007EB460 /* AddClassViewController.swift */,
+				516588751C113A2B00B0E20C /* TaskCell.swift */,
 				5171A2281BD1C2ED00AC5D22 /* CIS_Calendar */,
 				5171A2271BD1C2ED00AC5D22 /* Products */,
 			);
@@ -60,7 +69,7 @@
 		5171A2271BD1C2ED00AC5D22 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5171A2261BD1C2ED00AC5D22 /* CIS_Calendar.app */,
+				5171A2261BD1C2ED00AC5D22 /* Super Task Cal.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,7 +105,7 @@
 			);
 			name = CIS_Calendar;
 			productName = CIS_Calendar;
-			productReference = 5171A2261BD1C2ED00AC5D22 /* CIS_Calendar.app */;
+			productReference = 5171A2261BD1C2ED00AC5D22 /* Super Task Cal.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -150,11 +159,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				51BA5FCC1C0FFF0800DA10FF /* EventDetail.swift in Sources */,
+				516588721C1121B400B0E20C /* AddTaskViewController.swift in Sources */,
 				517DD4B11BDDCD4000AA6E58 /* AddClassCell.swift in Sources */,
 				5171A22E1BD1C2ED00AC5D22 /* SecondViewController.swift in Sources */,
+				516588761C113A2B00B0E20C /* TaskCell.swift in Sources */,
 				514CB2861BD66F6A007EB460 /* AddClassViewController.swift in Sources */,
 				5171A22A1BD1C2ED00AC5D22 /* AppDelegate.swift in Sources */,
 				51BA5FCA1C0FF45200DA10FF /* EventCell.swift in Sources */,
+				516588741C11245A00B0E20C /* Task.swift in Sources */,
 				5171A22C1BD1C2ED00AC5D22 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,7 +281,7 @@
 				INFOPLIST_FILE = CIS_Calendar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.iOSDev.CIS-Calendar";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Super Task Cal";
 			};
 			name = Debug;
 		};
@@ -280,7 +292,7 @@
 				INFOPLIST_FILE = CIS_Calendar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.iOSDev.CIS-Calendar";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Super Task Cal";
 			};
 			name = Release;
 		};

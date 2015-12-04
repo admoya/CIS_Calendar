@@ -10,16 +10,18 @@ import UIKit
 import EventKit
 import EventKitUI
 
-class EventDetail: UIViewController {
+class EventDetail: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var eventNameLbl: UILabel!
     @IBOutlet var eventTypeLbl: UILabel!
     @IBOutlet var startDateLbl: UILabel!
     @IBOutlet var endDateLbl: UILabel!
     @IBOutlet var tasksLbl: UILabel!
+    @IBOutlet var taskTable: UITableView!
+    
     var events: NSMutableArray!
     var index: Int!
-    
+    var tasks: [Task]?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,7 +29,23 @@ class EventDetail: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-       eventNameLbl.text = events[index].title
+       
+        if (NSUserDefaults.standardUserDefaults().objectForKey("tasks") != nil){
+            let decoded = NSUserDefaults.standardUserDefaults().objectForKey("tasks") as! NSData
+            tasks = NSKeyedUnarchiver.unarchiveObjectWithData(decoded) as? [Task]
+            
+            for task in tasks!{
+                if task.associatedClass != events[index].title{
+                    tasks?.removeAtIndex((tasks?.indexOf(task))!)
+                }
+            }
+            
+            taskTable.reloadData()
+        }
+
+        
+        
+        eventNameLbl.text = events[index].title
         
         if (events[index].notes == "STC_Class"){
             eventTypeLbl.text = "Event Type: Class"
@@ -53,15 +71,37 @@ class EventDetail: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (tasks?.count)!
     }
-    */
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("taskCell")! as! TaskCell
+        let task = tasks?[indexPath.row]
+        
+        let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: (task?.name)!)
+        if (task!.completed!){
+            attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 2, range: NSMakeRange(0, attributeString.length))
+        }
+        
+        cell.tasknameLbl.attributedText = attributeString
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        let timeFormatter = NSDateFormatter()
+        timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        
+        let date = dateFormatter.stringFromDate((tasks?[indexPath.row].date)!) + "\n" + timeFormatter.stringFromDate((tasks?[indexPath.row].date)!)
+        cell.dateLbl.text = date
+        
+        
+        return cell
+
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    }
+
+    
 
 }

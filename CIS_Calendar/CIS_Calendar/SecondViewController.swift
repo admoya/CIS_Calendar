@@ -44,7 +44,7 @@ class SecondViewController: UIViewController, EKEventEditViewDelegate, UITableVi
     
     func fetchEvents(completed: (NSMutableArray) -> ()) {
                 let eventStore = self.store
-                let endDate = NSDate(timeIntervalSinceNow: 604800*10);   //This is 10 weeks in seconds
+                let endDate = NSDate(timeIntervalSinceNow: 604800*1);   //This is 1 weeks in seconds
                 let predicate = eventStore.predicateForEventsWithStartDate(NSDate(), endDate: endDate, calendars: [self.mainCal])
                 let events = NSMutableArray(array: eventStore.eventsMatchingPredicate(predicate))
                 //print(events)
