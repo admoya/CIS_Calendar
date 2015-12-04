@@ -81,20 +81,38 @@ class AddClassCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelegat
         return pickerData[1][blockPicker.selectedRowInComponent(1)]
     }
     
-    func getRecurrence() -> EKRecurrenceRule
+    func getRecurrence(selection: Int) -> EKRecurrenceRule
     {
         let tmpDate = NSDateComponents()
-        if NSDateComponents().month <= 5
-        {
-            tmpDate.year = 2016
-            tmpDate.month = 4
-            tmpDate.day = 21
-        }
-        else
+        if  selection == 0 //Fall
         {
             tmpDate.year = 2015
             tmpDate.month = 12
-            tmpDate.day = 10
+            tmpDate.day = 9
+        }
+        else if selection == 1 //Spring
+        {
+            tmpDate.year = 2016
+            tmpDate.month = 4
+            tmpDate.day = 20
+        }
+        else if selection == 2 //Summer A
+        {
+            tmpDate.year = 2016
+            tmpDate.month = 6
+            tmpDate.day = 17
+        }
+        else if selection == 1 //Summer B
+        {
+            tmpDate.year = 2016
+            tmpDate.month = 8
+            tmpDate.day = 5
+        }
+        else //Summer C
+        {
+            tmpDate.year = 2015
+            tmpDate.month = 8
+            tmpDate.day = 5
         }
         
         let end = EKRecurrenceEnd(endDate: NSCalendar.currentCalendar().dateFromComponents(tmpDate)!)
@@ -151,6 +169,38 @@ class AddClassCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelegat
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func getFirstDay(startDay: Int)->Int{
+        if isBlue(suBtn) && startDay == 1
+        {
+            return 1
+        }
+        else if isBlue(mBtn) && startDay == 2
+        {
+            return 2
+        }
+        else if isBlue(tBtn) && startDay == 3
+        {
+            return 3
+        }
+        else if isBlue(wBtn) && startDay == 4
+        {
+            return 4
+        }
+        else if isBlue(rBtn) && startDay == 5
+        {
+            return 5
+        }
+        else if isBlue(fBtn) && startDay == 6
+        {
+            return 6
+        }
+        else
+        {
+            return 7
+        }
+
     }
     
     func createEvent() -> EKEvent

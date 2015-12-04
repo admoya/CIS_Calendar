@@ -9,11 +9,13 @@
 import UIKit
 import EventKit
 
-class AddClassViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AddClassViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate {
 
+    @IBOutlet var semPicker: UIPickerView!
     @IBOutlet var classNameTF: UITextField!
     @IBOutlet var classDateTable: UITableView!
     var cellCount = 1
+    let pickerData = ["Fall", "Spring", "SummerA", "SummerB", "SummerC"]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,6 +43,34 @@ class AddClassViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        //print("Selected: \(row)")
+            }
+    
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView
+    {
+        let pickerLabel = UILabel()
+        pickerLabel.textColor = UIColor.blackColor()
+        pickerLabel.text = pickerData[row]
+        // pickerLabel.font = UIFont(name: pickerLabel.font.fontName, size: 15)
+        pickerLabel.font = UIFont(name: "Arial-BoldMT", size: 12) // In this use your custom font
+        pickerLabel.textAlignment = NSTextAlignment.Center
+        return pickerLabel
+    }
+
 
     @IBAction func addClassDate(sender: AnyObject) {
         cellCount++
@@ -71,8 +101,14 @@ class AddClassViewController: UIViewController, UITableViewDelegate, UITableView
                     event.notes = "STC_Class"
                     
                     
-                    let startDate = NSCalendar.currentCalendar().dateFromComponents(getStartTimeFromBlock(cell.getSelectedBlock1()))
-                    let endDate = NSCalendar.currentCalendar().dateFromComponents(getEndTimeFromBlock(cell.getSelectedBlock2()))
+                    var startDate = NSCalendar.currentCalendar().dateFromComponents(getStartTimeFromBlock(cell.getSelectedBlock1()))
+                    
+                    var endDate = NSCalendar.currentCalendar().dateFromComponents(getEndTimeFromBlock(cell.getSelectedBlock2()))
+                    
+                    while(getDayOfWeek(startDate!) < cell.getFirstDay(getDayOfWeek(startDate!))){
+                        startDate = startDate!.dateByAddingTimeInterval(86400)
+                        endDate = endDate!.dateByAddingTimeInterval(86400)
+                    }
                     
                     print(event.title)
                     print(startDate!)
@@ -82,13 +118,14 @@ class AddClassViewController: UIViewController, UITableViewDelegate, UITableView
                     event.startDate = startDate!
                     event.endDate = endDate!
                     
-                    event.recurrenceRules = [cell.getRecurrence()]
+                    event.recurrenceRules = [cell.getRecurrence(semPicker.selectedRowInComponent(0))]
                     
                     event.calendar = calendar
                     
                     print(event)
                     
                     try! store.saveEvent(event, span: EKSpan.ThisEvent)
+                    
                     self.dismissViewControllerAnimated(true, completion: nil)
                 }
                 
@@ -274,16 +311,16 @@ class AddClassViewController: UIViewController, UITableViewDelegate, UITableView
     
     func getStartOfSemester()->NSDateComponents
     {
-        if NSDateComponents().month <= 5
+        if semPicker.selectedRowInComponent(0) == 1 //Spring
         {
             let tmpDate = NSDateComponents()
-            tmpDate.year = 2015
+            tmpDate.year = 2016
             tmpDate.month = 1
             tmpDate.day = 5
             return tmpDate
         }
         
-        else
+        else if semPicker.selectedRowInComponent(0) == 0 //Fall
         {
             let tmpDate = NSDateComponents()
             tmpDate.year = 2015
@@ -291,6 +328,36 @@ class AddClassViewController: UIViewController, UITableViewDelegate, UITableView
             tmpDate.day = 24
             return tmpDate
         }
+        else if semPicker.selectedRowInComponent(0) == 2 //Summer A
+        {
+            let tmpDate = NSDateComponents()
+            tmpDate.year = 2016
+            tmpDate.month = 5
+            tmpDate.day = 9
+            return tmpDate
+        }
+        else if semPicker.selectedRowInComponent(0) == 3 //Summer B
+        {
+            let tmpDate = NSDateComponents()
+            tmpDate.year = 2016
+            tmpDate.month = 6
+            tmpDate.day = 27
+            return tmpDate
+        }
+        else {
+            let tmpDate = NSDateComponents() //Summer C
+            tmpDate.year = 2016
+            tmpDate.month = 5
+            tmpDate.day = 9
+            return tmpDate
+        }
         
+    }
+    
+    func getDayOfWeek(date: NSDate)->Int{
+        let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let myComponents = myCalendar.components(.Weekday, fromDate: date)
+        let weekDay = myComponents.weekday
+        return weekDay
     }
 }

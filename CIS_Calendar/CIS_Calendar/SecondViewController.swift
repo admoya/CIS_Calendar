@@ -64,7 +64,7 @@ class SecondViewController: UIViewController, EKEventEditViewDelegate, UITableVi
         newCalendar.title="Super Task Cal"
         newCalendar.source = store.defaultCalendarForNewEvents.source
         try! store.saveCalendar(newCalendar, commit:true)
-        addClass(self)
+        //addClass(self)
         return newCalendar
     }
     
@@ -168,10 +168,7 @@ class SecondViewController: UIViewController, EKEventEditViewDelegate, UITableVi
             
         case .NotDetermined:
             store.requestAccessToEntityType(EKEntityType.Event, completion: { (granted, error) -> Void in
-                if granted == true {
-                    //self.setNavBarAppearanceStandard()
-                    return
-                }
+                return granted
             })
         case .Denied, .Restricted:
             
