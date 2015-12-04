@@ -88,7 +88,7 @@ class AddTaskViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         {
         if (NSUserDefaults.standardUserDefaults().objectForKey("tasks") == nil)
         {
-            print("Taking this")
+            //print("Taking this")
             let tmpClasses = [Task(name: taskNameTF.text!, priority: priorityPicker.selectedRowInComponent(0), date: taskDate, associatedClass: classNames[classPicker.selectedRowInComponent(0)], completed: false)]
             
             let encodedData = NSKeyedArchiver.archivedDataWithRootObject(tmpClasses)

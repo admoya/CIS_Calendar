@@ -110,9 +110,9 @@ class AddClassViewController: UIViewController, UITableViewDelegate, UITableView
                         endDate = endDate!.dateByAddingTimeInterval(86400)
                     }
                     
-                    print(event.title)
-                    print(startDate!)
-                    print(endDate!)
+//                    print(event.title)
+//                    print(startDate!)
+//                    print(endDate!)
              
                     
                     event.startDate = startDate!
@@ -122,7 +122,7 @@ class AddClassViewController: UIViewController, UITableViewDelegate, UITableView
                     
                     event.calendar = calendar
                     
-                    print(event)
+                    //print(event)
                     
                     try! store.saveEvent(event, span: EKSpan.ThisEvent)
                     

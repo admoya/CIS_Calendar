@@ -72,7 +72,7 @@ class SecondViewController: UIViewController, EKEventEditViewDelegate, UITableVi
     {
         store.requestAccessToEntityType(EKEntityType.Event, completion: {[weak weakEventStore = self.store]
             granted, error in
-            print("Permission granted to access \(weakEventStore)");
+            //print("Permission granted to access \(weakEventStore)");
             })
 
     }
